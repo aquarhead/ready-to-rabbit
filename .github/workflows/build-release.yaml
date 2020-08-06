@@ -19,7 +19,7 @@ jobs:
         run: cargo install cargo-bpf --git https://github.com/redsift/redbpf.git
       - name: Build
         working-directory: ready-the-rabbit
-        run: cargo build
+        run: cargo build --release
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
