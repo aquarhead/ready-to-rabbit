@@ -1,0 +1,2 @@
+[workspace]
+members = ["block-the-rabbit", "ready-the-rabbit", "test-the-rabbit"]

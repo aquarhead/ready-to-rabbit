@@ -1,0 +1,20 @@
+[package]
+name = "block-the-rabbit"
+version = "0.1.0"
+edition = '2018'
+
+[dependencies]
+redbpf-macros = { git = "https://github.com/redsift/redbpf.git" }
+redbpf-probes = { git = "https://github.com/redsift/redbpf.git" }
+
+[features]
+default = []
+probes = []
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "block-the-rabbit"
+path = "src/block.rs"
+required-features = ["probes"]
