@@ -13,11 +13,6 @@ jobs:
         with:
           path: target
           key: ${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.lock') }}
-      - name: Cache cargo bin
-        uses: actions/cache@v1
-        with:
-          path: ~/.cargo/bin
-          key: ${{ runner.os }}-cargo-bin-${{ hashFiles('**/Cargo.lock') }}
       - name: Install deps
         run: sudo apt install git build-essential clang-10 llvm-10 libelf-dev linux-headers-$(uname -r) zlib1g ca-certificates
       - name: Install cargo-bpf
