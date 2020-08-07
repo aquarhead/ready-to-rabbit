@@ -16,21 +16,16 @@ fn main() -> Result<()> {
   let mut loader = Loader::load(prog).expect("error loading XDP program");
 
   for prog in loader.module.xdps_mut() {
-    // Ideally we should not hardcode the interface, but there's a bug in RedBPF currently
-    //
-    // let interfaces = std::fs::read_dir("/sys/class/net").expect("failed to list interfaces");
-    // for interface in interfaces {
-    //   if let Ok(iface) = interface {
-    //     if let Ok(ifa) = iface.file_name().into_string() {
-    //       prog
-    //         .attach_xdp(&ifa, xdp::Flags::default())
-    //         .expect("failed to attach XDP program");
-    //     }
-    //   }
-    // }
-    prog
-      .attach_xdp("eth0", Default::default())
-      .expect("failed to attach XDP program");
+    let interfaces = std::fs::read_dir("/sys/class/net").expect("failed to list interfaces");
+    for interface in interfaces {
+      if let Ok(iface) = interface {
+        if let Ok(ifa) = iface.file_name().into_string() {
+          prog
+            .attach_xdp(&ifa, Default::default())
+            .expect("failed to attach XDP program");
+        }
+      }
+    }
   }
 
   loop {

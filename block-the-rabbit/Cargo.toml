@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = '2018'
 
 [dependencies]
-redbpf-macros = { git = "https://github.com/redsift/redbpf.git" }
-redbpf-probes = { git = "https://github.com/redsift/redbpf.git" }
+redbpf-macros = { git = "https://github.com/aquarhead/redbpf.git", branch = "xdp-multi-attach" }
+redbpf-probes = { git = "https://github.com/aquarhead/redbpf.git", branch = "xdp-multi-attach" }
 
 [features]
 default = []

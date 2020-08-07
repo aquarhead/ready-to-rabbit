@@ -1,12 +1,12 @@
 [package]
 name = "ready-the-rabbit"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["LOU Xun <aquarhead@ela.build>"]
 edition = "2018"
 build = "build.rs"
 
 [dependencies]
-redbpf = { git = "https://github.com/redsift/redbpf.git", features = ["load"] }
+redbpf = { git = "https://github.com/aquarhead/redbpf.git", branch = "xdp-multi-attach", features = ["load"] }
 anyhow = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"

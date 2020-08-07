@@ -93,7 +93,7 @@ dependencies = [
 [[package]]
 name = "bpf-sys"
 version = "1.0.0"
-source = "git+https://github.com/redsift/redbpf.git#8c1d771bcd29b6e0415544ac4aaa0a3d5006519f"
+source = "git+https://github.com/aquarhead/redbpf.git?branch=xdp-multi-attach#fe9a694c0d608603104c3c1b6ca3e593c7a7edd9"
 dependencies = [
  "bindgen",
  "cc",
@@ -116,7 +116,7 @@ checksum = "0e4cec68f03f32e44924783795810fa50a7035d8c8ebe78580ad7e6c703fba38"
 [[package]]
 name = "cargo-bpf"
 version = "1.0.0"
-source = "git+https://github.com/redsift/redbpf.git#8c1d771bcd29b6e0415544ac4aaa0a3d5006519f"
+source = "git+https://github.com/aquarhead/redbpf.git?branch=xdp-multi-attach#fe9a694c0d608603104c3c1b6ca3e593c7a7edd9"
 dependencies = [
  "bindgen",
  "bpf-sys",
@@ -692,7 +692,7 @@ dependencies = [
 
 [[package]]
 name = "ready-the-rabbit"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "anyhow",
  "log",
@@ -705,7 +705,7 @@ dependencies = [
 [[package]]
 name = "redbpf"
 version = "1.0.0"
-source = "git+https://github.com/redsift/redbpf.git#8c1d771bcd29b6e0415544ac4aaa0a3d5006519f"
+source = "git+https://github.com/aquarhead/redbpf.git?branch=xdp-multi-attach#fe9a694c0d608603104c3c1b6ca3e593c7a7edd9"
 dependencies = [
  "bindgen",
  "bpf-sys",
@@ -723,7 +723,7 @@ dependencies = [
 [[package]]
 name = "redbpf-macros"
 version = "1.0.1"
-source = "git+https://github.com/redsift/redbpf.git#8c1d771bcd29b6e0415544ac4aaa0a3d5006519f"
+source = "git+https://github.com/aquarhead/redbpf.git?branch=xdp-multi-attach#fe9a694c0d608603104c3c1b6ca3e593c7a7edd9"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -733,7 +733,7 @@ dependencies = [
 [[package]]
 name = "redbpf-probes"
 version = "1.0.0"
-source = "git+https://github.com/redsift/redbpf.git#8c1d771bcd29b6e0415544ac4aaa0a3d5006519f"
+source = "git+https://github.com/aquarhead/redbpf.git?branch=xdp-multi-attach#fe9a694c0d608603104c3c1b6ca3e593c7a7edd9"
 dependencies = [
  "cargo-bpf",
  "cty",
