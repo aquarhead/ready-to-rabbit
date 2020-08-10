@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: cargo build --release
       - name: Upload Release Asset
-        if: startsWith(github.event["push"]["tags"], "v")
+        if: startsWith(github.event.push.tags, "v")
         id: upload-release-asset
         uses: svenstaro/upload-release-action@v2
         env:
