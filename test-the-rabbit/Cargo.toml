@@ -5,3 +5,7 @@ authors = ["LOU Xun <aquarhead@ela.build>"]
 edition = "2018"
 
 [dependencies]
+anyhow = "1.0"
+lapin = "1.2"
+smol = "0.3"
+rand = "0.7"

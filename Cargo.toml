@@ -1,2 +1,3 @@
 [workspace]
-members = ["block-the-rabbit", "ready-the-rabbit", "test-the-rabbit"]
+members = ["block-the-rabbit", "ready-the-rabbit"]
+exclude = ["test-the-rabbit"]
