@@ -1,3 +1,26 @@
-[workspace]
-members = ["block-the-rabbit", "ready-the-rabbit"]
-exclude = ["test-the-rabbit"]
+[package]
+name = "ready-to-rabbit"
+version = "0.3.0"
+authors = ["LOU Xun <aquarhead@ela.build>"]
+edition = "2018"
+build = "build.rs"
+
+[dependencies]
+redbpf = { git = "https://github.com/redsift/redbpf.git" }
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+simple_logger = "1.6"
+# XDP
+redbpf-macros = { git = "https://github.com/redsift/redbpf.git", optional = true }
+redbpf-probes = { git = "https://github.com/redsift/redbpf.git", optional = true }
+
+[features]
+default = []
+probes = ["redbpf-macros", "redbpf-probes"]
+
+[[bin]]
+name = "block"
+path = "xdp/block.rs"
+required-features = ["probes"]

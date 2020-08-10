@@ -1,6 +1,6 @@
 use anyhow::Result;
 use log::error;
-use redbpf::load::Loader;
+use redbpf::Module;
 use serde::{Deserialize, Serialize};
 use std::{process::Command, thread, time};
 
@@ -12,10 +12,10 @@ struct ClusterStatus {
 fn main() -> Result<()> {
   simple_logger::init().expect("error initializing logger");
 
-  let prog = include_bytes!("../../block-the-rabbit/target/bpf/programs/block-the-rabbit/block-the-rabbit.elf");
-  let mut loader = Loader::load(prog).expect("error loading XDP program");
+  let prog = include_bytes!("target/bpf/programs/block/block.elf");
+  let mut module = Module::parse(prog).expect("error parsing BPF code");
 
-  for prog in loader.module.xdps_mut() {
+  for prog in module.xdps_mut() {
     let interfaces = std::fs::read_dir("/sys/class/net").expect("failed to list interfaces");
     for interface in interfaces {
       if let Ok(iface) = interface {
