@@ -1,5 +1,6 @@
 [tasks.build_xdp]
 description = "Build XDP program"
+install_crate = "cargo-bpf"
 install_crate_args = ["--git", "https://github.com/redsift/redbpf.git"]
 command = "cargo"
 args = ["bpf", "build", "block"]
