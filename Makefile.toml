@@ -1,0 +1,11 @@
+[tasks.build_xdp]
+description = "Build XDP program"
+install_crate_args = ["--git", "https://github.com/redsift/redbpf.git"]
+command = "cargo"
+args = ["bpf", "build", "block"]
+
+[tasks.release]
+description = "Build release"
+command = "cargo"
+args = ["build", "--release"]
+dependencies = ["build_xdp"]

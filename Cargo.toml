@@ -3,7 +3,6 @@ name = "ready-to-rabbit"
 version = "0.3.0"
 authors = ["LOU Xun <aquarhead@ela.build>"]
 edition = "2018"
-build = "build.rs"
 
 [dependencies]
 redbpf = { git = "https://github.com/redsift/redbpf.git" }
