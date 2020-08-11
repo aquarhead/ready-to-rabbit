@@ -28,9 +28,8 @@ jobs:
         run: cargo make release
       - name: Upload assets
         uses: svenstaro/upload-release-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
           file: target/release/ready-to-rabbit
           asset_name: ready-to-rabbit
