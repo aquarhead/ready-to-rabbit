@@ -12,7 +12,7 @@ struct ClusterStatus {
 fn main() -> Result<()> {
   simple_logger::init().expect("error initializing logger");
 
-  let prog = include_bytes!("target/bpf/programs/block/block.elf");
+  let prog = include_bytes!("../target/bpf/programs/block/block.elf");
   let mut module = Module::parse(prog).expect("error parsing BPF code");
 
   for prog in module.xdps_mut() {
