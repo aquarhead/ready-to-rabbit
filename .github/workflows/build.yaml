@@ -1,10 +1,8 @@
-name: Build and Create Release
+name: Build
 on:
   push:
     branches:
       - master
-    tags:
-      - 'v*'
 jobs:
   build-release:
     timeout-minutes: 40
@@ -28,13 +26,3 @@ jobs:
           mv cargo-make-v0.32.1-x86_64-unknown-linux-musl/cargo-make ~/.cargo/bin/
       - name: Build release
         run: cargo make release
-      - name: Upload Release Asset
-        if: startsWith(github.ref, 'v')
-        uses: svenstaro/upload-release-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag: ${{ github.ref }}
-          file: target/release/ready-to-rabbit
-          asset_name: ready-to-rabbit
-          overwrite: true
