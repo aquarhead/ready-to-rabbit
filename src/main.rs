@@ -15,6 +15,12 @@ fn main() -> Result<()> {
   let prog = include_bytes!("../target/bpf/programs/block/block.elf");
   let mut module = Module::parse(prog).expect("error parsing BPF code");
 
+  for program in module.programs.iter_mut() {
+    program
+      .load(module.version, module.license.clone())
+      .expect("failed to load program");
+  }
+
   for prog in module.xdps_mut() {
     let interfaces = std::fs::read_dir("/sys/class/net").expect("failed to list interfaces");
     for interface in interfaces {
